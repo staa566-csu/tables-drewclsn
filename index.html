@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Drew Clayson">
+
+<title>Tables</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="index_files/libs/jquery-1.11.3/jquery.min.js"></script>
+<link href="index_files/libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet">
+<script src="index_files/libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="index_files/libs/sparkline-binding-2.0/sparkline.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tables</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Drew Clayson </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="data-gathering" class="level2">
+<h2 class="anchored" data-anchor-id="data-gathering">Data Gathering</h2>
+<p>I am doing my data based on the G20 members to keep a concise table. I filter the dates down to ensure that there are no missing values (some data have not been updated since 2015).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wbstats)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+✓ tibble  3.1.6     ✓ dplyr   1.0.8
+✓ tidyr   1.2.0     ✓ stringr 1.4.0
+✓ readr   2.1.2     ✓ forcats 0.5.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"ARG"</span>, <span class="st">"AUS"</span>, <span class="st">"BRA"</span>, <span class="st">"CAN"</span>, <span class="st">"CHN"</span>, <span class="st">"FRA"</span>, <span class="st">"DEU"</span>, <span class="st">"IND"</span>, <span class="st">"IDN"</span>, <span class="st">"ITA"</span>, <span class="st">"KOR"</span>, <span class="st">"JPN"</span>, <span class="st">"MEX"</span>, <span class="st">"RUS"</span>, <span class="st">"SAU"</span>, <span class="st">"ZAF"</span>, <span class="st">"TUR"</span>, <span class="st">"GBR"</span>, <span class="st">"USA"</span>, <span class="st">"EU"</span>), <span class="at">indicator =</span> <span class="fu">c</span>(<span class="st">"NY.GDP.MKTP.KD"</span>, <span class="st">"NY.GDP.PCAP.KD.ZG"</span>, <span class="st">"EN.ATM.CO2E.KT"</span>, <span class="st">"EG.ELC.RNEW.ZS"</span>, <span class="st">"NY.GNS.ICTR.ZS"</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> raw_data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date <span class="sc">&lt;</span> <span class="dv">2016</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date <span class="sc">&gt;</span> <span class="dv">1999</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(clean_data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Country"</span>, <span class="st">"Date"</span>, <span class="st">"Percent Renewable"</span>, <span class="st">"CO2"</span>, <span class="st">"GDP(billions)"</span>, <span class="st">"GDP Per Capita Growth"</span>, <span class="st">"Savings Rate"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span> <span class="ot">&lt;-</span> clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span><span class="sc">/</span><span class="dv">1000000000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For my first table, I will be making a relatively simple table with a few added flairs pointing out interesting information. I understand that it might be slightly redundant to simply highlight negative numbers in red, however I think it makes it much easier for readers to glean simple information quickly. Furthermore I chose to highlight relatively large savings rates in green and found that they tend to all be from Asia, which is perhaps an interesting insight!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span> <span class="sc">&lt;</span> <span class="dv">0</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cell_spec</span>(<span class="fu">round</span>(clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span>,<span class="at">digits =</span> <span class="dv">2</span>), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cell_spec</span>(<span class="fu">round</span>(clean_data<span class="sc">$</span><span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span>,<span class="at">digits =</span> <span class="dv">2</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>clean_data<span class="sc">$</span><span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  clean_data<span class="sc">$</span><span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span><span class="sc">&gt;</span><span class="dv">30</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cell_spec</span>(<span class="fu">round</span>(clean_data<span class="sc">$</span><span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span>,<span class="at">digits =</span> <span class="dv">2</span>), <span class="at">color =</span> <span class="st">"green"</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cell_spec</span>(<span class="fu">round</span>(clean_data<span class="sc">$</span><span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span>, <span class="at">digits =</span> <span class="dv">2</span>))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">==</span> <span class="dv">2015</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country, <span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>, <span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span>, <span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span>, CO2, <span class="st">`</span><span class="at">Percent Renewable</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">escape =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span>, <span class="st">"Economic Data "</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">"Environmental Data"</span> <span class="ot">=</span> <span class="dv">2</span>))</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>tbl <span class="sc">%&gt;%</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_material</span>(<span class="at">lightable_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">HTML</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">div</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  sparkline<span class="sc">::</span><span class="fu">spk_add_deps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div><table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Economic Data </div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Environmental Data</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;"> Country </th>
+   <th style="text-align:right;"> GDP(billions) </th>
+   <th style="text-align:left;"> GDP Per Capita Growth </th>
+   <th style="text-align:left;"> Savings Rate </th>
+   <th style="text-align:right;"> CO2 </th>
+   <th style="text-align:right;"> Percent Renewable </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> United States </td>
+   <td style="text-align:right;"> 18206.02 </td>
+   <td style="text-align:left;"> <span style="     ">1.95</span> </td>
+   <td style="text-align:left;"> <span style="     ">20.24</span> </td>
+   <td style="text-align:right;"> 4990710 </td>
+   <td style="text-align:right;"> 13.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> European Union </td>
+   <td style="text-align:right;"> 13551.93 </td>
+   <td style="text-align:left;"> <span style="     ">2.09</span> </td>
+   <td style="text-align:left;"> <span style="     ">23.94</span> </td>
+   <td style="text-align:right;"> 2895700 </td>
+   <td style="text-align:right;"> 29.72 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> China </td>
+   <td style="text-align:right;"> 11061.55 </td>
+   <td style="text-align:left;"> <span style="     ">6.42</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">45.42</span> </td>
+   <td style="text-align:right;"> 9861100 </td>
+   <td style="text-align:right;"> 23.93 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Japan </td>
+   <td style="text-align:right;"> 4444.93 </td>
+   <td style="text-align:left;"> <span style="     ">1.67</span> </td>
+   <td style="text-align:left;"> <span style="     ">28.18</span> </td>
+   <td style="text-align:right;"> 1179440 </td>
+   <td style="text-align:right;"> 15.98 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Germany </td>
+   <td style="text-align:right;"> 3357.59 </td>
+   <td style="text-align:left;"> <span style="     ">0.62</span> </td>
+   <td style="text-align:left;"> <span style="     ">28.33</span> </td>
+   <td style="text-align:right;"> 742310 </td>
+   <td style="text-align:right;"> 29.23 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> United Kingdom </td>
+   <td style="text-align:right;"> 2956.57 </td>
+   <td style="text-align:left;"> <span style="     ">1.81</span> </td>
+   <td style="text-align:left;"> <span style="     ">12.53</span> </td>
+   <td style="text-align:right;"> 401080 </td>
+   <td style="text-align:right;"> 24.84 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> France </td>
+   <td style="text-align:right;"> 2439.19 </td>
+   <td style="text-align:left;"> <span style="     ">0.75</span> </td>
+   <td style="text-align:left;"> <span style="     ">22.25</span> </td>
+   <td style="text-align:right;"> 311300 </td>
+   <td style="text-align:right;"> 15.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> India </td>
+   <td style="text-align:right;"> 2103.59 </td>
+   <td style="text-align:left;"> <span style="     ">6.8</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">32.45</span> </td>
+   <td style="text-align:right;"> 2158020 </td>
+   <td style="text-align:right;"> 15.34 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Italy </td>
+   <td style="text-align:right;"> 1836.64 </td>
+   <td style="text-align:left;"> <span style="     ">0.88</span> </td>
+   <td style="text-align:left;"> <span style="     ">18.52</span> </td>
+   <td style="text-align:right;"> 337860 </td>
+   <td style="text-align:right;"> 38.68 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brazil </td>
+   <td style="text-align:right;"> 1802.21 </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-4.35</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.31</span> </td>
+   <td style="text-align:right;"> 485340 </td>
+   <td style="text-align:right;"> 73.97 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Canada </td>
+   <td style="text-align:right;"> 1556.51 </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-0.09</span> </td>
+   <td style="text-align:left;"> <span style="     ">19.57</span> </td>
+   <td style="text-align:right;"> 558700 </td>
+   <td style="text-align:right;"> 63.01 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Korea, Rep. </td>
+   <td style="text-align:right;"> 1465.77 </td>
+   <td style="text-align:left;"> <span style="     ">2.27</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">36.35</span> </td>
+   <td style="text-align:right;"> 607830 </td>
+   <td style="text-align:right;"> 1.89 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Russian Federation </td>
+   <td style="text-align:right;"> 1363.48 </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-2.18</span> </td>
+   <td style="text-align:left;"> <span style="     ">26.37</span> </td>
+   <td style="text-align:right;"> 1592560 </td>
+   <td style="text-align:right;"> 15.86 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:right;"> 1350.53 </td>
+   <td style="text-align:left;"> <span style="     ">0.71</span> </td>
+   <td style="text-align:left;"> <span style="     ">22.7</span> </td>
+   <td style="text-align:right;"> 377800 </td>
+   <td style="text-align:right;"> 13.64 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mexico </td>
+   <td style="text-align:right;"> 1171.87 </td>
+   <td style="text-align:left;"> <span style="     ">2.02</span> </td>
+   <td style="text-align:left;"> <span style="     ">21.76</span> </td>
+   <td style="text-align:right;"> 471630 </td>
+   <td style="text-align:right;"> 15.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Turkiye </td>
+   <td style="text-align:right;"> 864.32 </td>
+   <td style="text-align:left;"> <span style="     ">4.33</span> </td>
+   <td style="text-align:left;"> <span style="     ">25.21</span> </td>
+   <td style="text-align:right;"> 351590 </td>
+   <td style="text-align:right;"> 31.96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Indonesia </td>
+   <td style="text-align:right;"> 860.85 </td>
+   <td style="text-align:left;"> <span style="     ">3.56</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">30.12</span> </td>
+   <td style="text-align:right;"> 488550 </td>
+   <td style="text-align:right;"> 10.65 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Saudi Arabia </td>
+   <td style="text-align:right;"> 654.27 </td>
+   <td style="text-align:left;"> <span style="     ">1.48</span> </td>
+   <td style="text-align:left;"> <span style="     ">25.5</span> </td>
+   <td style="text-align:right;"> 565190 </td>
+   <td style="text-align:right;"> 0.00 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Argentina </td>
+   <td style="text-align:right;"> 594.75 </td>
+   <td style="text-align:left;"> <span style="     ">1.63</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.31</span> </td>
+   <td style="text-align:right;"> 185550 </td>
+   <td style="text-align:right;"> 28.14 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> South Africa </td>
+   <td style="text-align:right;"> 346.71 </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-0.22</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.29</span> </td>
+   <td style="text-align:right;"> 424810 </td>
+   <td style="text-align:right;"> 2.26 </td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<p>From here, I will try to make use of the time series data using sparkline. I would really only like to include time series of GDP, CO2, and Percent Renewable. I could do time series of the other data, however I don’t believe it to be particularly interesting. The chart will still use the same data as above so all color highlights remain the same, which is nice functionality.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sparkline)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create similar table to the one above,  however mutating to add 3 more variables</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>tbl2 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">==</span> <span class="dv">2015</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(<span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country, <span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>, <span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span>, <span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span>, CO2, <span class="st">`</span><span class="at">Percent Renewable</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">plt_GDP =</span> <span class="cn">NA</span>, <span class="at">plt_CO2 =</span> <span class="cn">NA</span>, <span class="at">plt_PercentRenewable =</span> <span class="cn">NA</span>) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate plots using a for loop</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> tbl2<span class="sc">$</span>Country){</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Data for GDP</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  country_GDP <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Country<span class="sc">==</span>i) <span class="sc">%&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(<span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  tbl2[<span class="fu">which</span>(tbl2<span class="sc">$</span>Country <span class="sc">==</span> i), <span class="st">"plt_GDP"</span>] <span class="ot">&lt;-</span> <span class="fu">spk_chr</span>(country_GDP)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Data for CO2</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  country_CO2 <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Country<span class="sc">==</span>i) <span class="sc">%&gt;%</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(CO2)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  tbl2[<span class="fu">which</span>(tbl2<span class="sc">$</span>Country <span class="sc">==</span> i), <span class="st">"plt_CO2"</span>] <span class="ot">&lt;-</span> <span class="fu">spk_chr</span>(country_CO2)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Data for Renewables</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  country_PercentRenewable <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Country<span class="sc">==</span>i) <span class="sc">%&gt;%</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(Date) <span class="sc">%&gt;%</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(<span class="st">`</span><span class="at">Percent Renewable</span><span class="st">`</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  tbl2[<span class="fu">which</span>(tbl2<span class="sc">$</span>Country <span class="sc">==</span> i), <span class="st">"plt_PercentRenewable"</span>] <span class="ot">&lt;-</span> <span class="fu">spk_chr</span>(country_PercentRenewable)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>tbl2_full <span class="ot">&lt;-</span> tbl2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Country, <span class="st">`</span><span class="at">GDP(billions)</span><span class="st">`</span>, plt_GDP, <span class="st">`</span><span class="at">GDP Per Capita Growth</span><span class="st">`</span>, <span class="st">`</span><span class="at">Savings Rate</span><span class="st">`</span>, CO2, plt_CO2, <span class="st">`</span><span class="at">Percent Renewable</span><span class="st">`</span>, plt_PercentRenewable) <span class="sc">%&gt;%</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>(<span class="at">escape =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Country"</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"GDP (billions)"</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"GDP Trend"</span>,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"GDP per Capita Growth"</span>,</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Savings Rate"</span>,</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"CO2 Emissions"</span>,</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Emission Trend"</span>,</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Percent Renewable"</span>,</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Renewability Trend"</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>                    ),</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_header_above</span>(<span class="fu">c</span>(<span class="st">" "</span>, <span class="st">"GDP"</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">" "</span>, <span class="st">"Environmentals"</span> <span class="ot">=</span> <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">font_size=</span><span class="dv">28</span>, <span class="at">fixed_thead =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>tbl2_full <span class="sc">%&gt;%</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">HTML</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">div</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>  sparkline<span class="sc">::</span><span class="fu">spk_add_deps</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div><table class="table" style="font-size: 28px; margin-left: auto; margin-right: auto;">
+ <thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="3"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">GDP</div></th>
+<th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;" colspan="4"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">Environmentals</div></th>
+</tr>
+  <tr>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Country </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> GDP (billions) </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> GDP Trend </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> GDP per Capita Growth </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Savings Rate </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> CO2 Emissions </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Emission Trend </th>
+   <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;"> Percent Renewable </th>
+   <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"> Renewability Trend </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> United States </td>
+   <td style="text-align:right;"> 18206.02 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-5217e2ae2ffa453f78ad" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-5217e2ae2ffa453f78ad">{"x":{"values":[13754.300444,13885.56306,14121.054284,14515.908489,15075.141499,15600.241891,16034.36708,16356.739241,16376.725286,15950.948713,16383.037055,16636.956919,17016.393933,17329.814706,17726.282036,18206.020741],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">1.95</span> </td>
+   <td style="text-align:left;"> <span style="     ">20.24</span> </td>
+   <td style="text-align:right;"> 4990710 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-17e595a5d419b217bf3a" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-17e595a5d419b217bf3a">{"x":{"values":[5775810,5748260,5593029.78515625,5658990.234375,5738290.0390625,5753490.234375,5653080.078125,5736319.82421875,5558379.8828125,5156430.17578125,5392109.86328125,5173600.09765625,4956060.05859375,5092100.09765625,5107209.9609375,4990709.9609375],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 13.23 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ac105be4b4e665b0dd4d" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ac105be4b4e665b0dd4d">{"x":{"values":[8.20599694228722,6.78399231432694,8.6463611778167,8.88937612108964,8.63018553161945,8.57846553445898,9.24463118340514,8.36776393615508,9.00354134718557,10.2918450711157,10.1203551472397,12.2257135163932,12.0073970634651,12.6379191222813,12.9538270902926,13.2285932109672],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> European Union </td>
+   <td style="text-align:right;"> 13551.93 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-977c236c7f8fafbf2ff0" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-977c236c7f8fafbf2ff0">{"x":{"values":[11259.8902271739,11504.8027129094,11632.4573917805,11738.0396227641,12042.238531899,12273.9426492905,12702.7246843596,13103.4664995335,13187.4610291959,12614.0616844157,12897.7916923567,13137.4026675002,13044.5564729387,13040.3830842449,13245.856309525,13551.9293599328],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">2.09</span> </td>
+   <td style="text-align:left;"> <span style="     ">23.94</span> </td>
+   <td style="text-align:right;"> 2895700 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-b9860745594b6a4d6d96" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-b9860745594b6a4d6d96">{"x":{"values":[3362380,3419490,3411189.9869442,3502199.99432564,3507500.00476837,3488149.98865128,3496999.94325638,3456569.96035576,3378879.98270988,3129210.00409126,3213189.98932839,3118369.98820305,3059130.00750542,2982339.98727799,2836770.03216743,2895699.9617815],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 29.72 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-0f330eaf79bda1d3049d" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-0f330eaf79bda1d3049d">{"x":{"values":[15.5289206794744,16.1796273780099,14.3675955311772,14.1833821607103,15.3097963556477,15.3308503795329,15.8947514248104,16.790321909393,18.2195961103901,20.2725682735875,22.1055537338523,22.1584890503021,25.0092075278919,27.904969647875,29.5794663230103,29.7153524985896],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> China </td>
+   <td style="text-align:right;"> 11061.55 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-c999e668c85880c454e1" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-c999e668c85880c454e1">{"x":{"values":[2770.10801588117,3001.01683714171,3275.11863498996,3603.8760418627,3968.35841967081,4420.5366631393,4982.87117221999,5691.97663921317,6241.29102883982,6827.89284855881,7554.09872836612,8275.57802053794,8926.34766567643,9619.58122362104,10333.9085900281,11061.5530798715],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">6.42</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">45.42</span> </td>
+   <td style="text-align:right;"> 9861100 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-9bb555c107ea9b937b2c" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9bb555c107ea9b937b2c">{"x":{"values":[3346530,3529080,3810060.05859375,4415910.15625,5124819.82421875,5824629.8828125,6437470.21484375,6993180.17578125,7199600.09765625,7719069.82421875,8474919.921875,9282549.8046875,9541870.1171875,9984570.3125,10006669.921875,9861099.609375],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 23.93 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-c9d1fb6fe409c8c71e3f" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-c9d1fb6fe409c8c71e3f">{"x":{"values":[16.6394981921286,18.9585191657511,17.6186278990475,15.0370403322247,16.2232664186372,16.1750249753446,15.5927834152258,15.263347136776,17.7374440648538,17.8637981987375,18.6228260527723,16.7617704327503,19.9662489377563,20.2962273802567,22.6091537829535,23.926817173663],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Japan </td>
+   <td style="text-align:right;"> 4444.93 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-11f11c434774d142023f" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-11f11c434774d142023f">{"x":{"values":[3986.75554446421,4002.14854421345,4003.8279457688,4065.2917295116,4154.16371003448,4229.10070543547,4287.13877436371,4350.7586024096,4297.49274339206,4052.8263240075,4218.90782017717,4219.91232203765,4277.9256088506,4363.70230279586,4376.62782963751,4444.93065196418],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">1.67</span> </td>
+   <td style="text-align:left;"> <span style="     ">28.18</span> </td>
+   <td style="text-align:right;"> 1179440 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-8c3836ea4386997fe0a4" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-8c3836ea4386997fe0a4">{"x":{"values":[1182610,1170380,1206599.97558594,1214949.95117188,1209849.97558594,1212819.94628906,1189520.01953125,1225069.94628906,1158219.97070313,1100979.98046875,1156479.98046875,1213520.01953125,1253609.98535156,1262780.02929688,1217119.99511719,1179439.94140625],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 15.98 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-a212313222b005d12a1e" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-a212313222b005d12a1e">{"x":{"values":[9.11604901056161,8.96543807616427,8.70870568322637,10.0221095672445,9.79582716934759,8.40711373205297,9.44909822599951,8.20178689867738,8.78932661054861,9.14571650806042,10.5317771633873,11.4628446015564,11.1942473822485,12.2052917942741,14.0593593575553,15.9847807230219],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Germany </td>
+   <td style="text-align:right;"> 3357.59 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-efe5ab97a19284a386bf" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-efe5ab97a19284a386bf">{"x":{"values":[2835.48113999239,2883.15886164524,2877.45096148429,2857.30544716818,2890.88130436169,2912.03408995556,3023.17017948512,3113.15348342082,3143.03599410402,2964.07666860551,3087.97159052568,3209.18042611817,3222.61076899558,3236.7126334549,3308.22920483904,3357.58571935156],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">0.62</span> </td>
+   <td style="text-align:left;"> <span style="     ">28.33</span> </td>
+   <td style="text-align:right;"> 742310 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-57eaf2b74765dd40b98a" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-57eaf2b74765dd40b98a">{"x":{"values":[830280,847680,833380.004882813,836789.978027344,821070.007324219,802380.004882813,814409.973144531,783799.987792969,789690.002441406,734809.997558594,773070.007324219,746479.98046875,760130.004882813,776150.024414063,736010.009765625,742309.997558594],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 29.23 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-fc2b07a05f2472275216" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fc2b07a05f2472275216">{"x":{"values":[6.19853122329914,6.51244401824412,7.64270028215289,7.55297770223143,9.26747449292675,10.1502111075024,11.3220131113963,13.9380080579109,14.6992338976639,16.0785536793646,16.7270736678142,20.3832827208232,23.0004585405584,24.0725497476084,26.1300965691114,29.2317701223308],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> United Kingdom </td>
+   <td style="text-align:right;"> 2956.57 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-9dcca6071b9aa27425dd" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9dcca6071b9aa27425dd">{"x":{"values":[2310.31024225962,2358.19503255894,2408.26476652686,2481.2325381139,2539.68119024187,2605.54223487146,2672.872173613,2733.53265676968,2726.98207145817,2611.15742757893,2666.81263439431,2705.68311905725,2745.45361757554,2797.34319453122,2881.01633988608,2956.57377873776],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">1.81</span> </td>
+   <td style="text-align:left;"> <span style="     ">12.53</span> </td>
+   <td style="text-align:right;"> 401080 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-e2aff8f7323b29f78f34" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-e2aff8f7323b29f78f34">{"x":{"values":[530890,545260,530789.978027344,543039.978027344,543080.017089844,540919.982910156,542059.997558594,530500,515340.026855469,466489.990234375,482440.002441406,445589.996337891,467779.998779297,453760.009765625,415600.006103516,401079.986572266],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 24.84 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-3eb53924b02c860e4cf3" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-3eb53924b02c860e4cf3">{"x":{"values":[2.66310517529215,2.49733241275421,2.89317333818692,2.68494730240932,3.61303216638809,4.28348161223592,4.60208931703226,5.01029338042756,5.67705220486968,6.76680846273229,6.81281342640788,9.48905310077413,11.423960176561,14.988480137732,19.2628536831965,24.8400504227664],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> France </td>
+   <td style="text-align:right;"> 2439.19 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-410e0a9676ff21625af5" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-410e0a9676ff21625af5">{"x":{"values":[2046.49957126118,2087.09642158852,2110.7960585184,2128.17130332576,2188.39329310935,2224.79108760791,2279.28342079228,2334.55003198542,2340.50187297904,2273.25190900652,2317.56753698914,2368.38485503517,2375.80109105554,2389.49346648281,2412.34139804684,2439.1886431625],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">0.75</span> </td>
+   <td style="text-align:left;"> <span style="     ">22.25</span> </td>
+   <td style="text-align:right;"> 311300 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-658354708cad23fda03a" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-658354708cad23fda03a">{"x":{"values":[373120,376730,371019.989013672,376709.991455078,377790.008544922,380660.003662109,371549.987792969,362829.986572266,357989.990234375,343730.010986328,347779.998779297,335140.014648438,338420.013427734,338559.997558594,306100.006103516,311299.987792969],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 15.86 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ec43ce94ad2a7794a1fd" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ec43ce94ad2a7794a1fd">{"x":{"values":[12.9678764686538,14.2563718855793,11.5972761591677,11.2300179517866,11.2429885178738,9.86064669736174,10.9475758299498,11.6909263128767,12.9792089338645,13.1271635670849,13.8573593131131,11.5747472478095,14.8273540719154,17.045286239218,16.4559049430271,15.8576666299907],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> India </td>
+   <td style="text-align:right;"> 2103.59 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-5340d347f4f2d77a5a86" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-5340d347f4f2d77a5a86">{"x":{"values":[800.534271756884,839.151774957445,871.072901385714,939.54255436462,1013.98191539782,1094.3240689789,1182.53460566162,1273.12639488157,1312.42396260778,1415.60527556611,1535.89753289739,1616.39876069538,1704.59576087717,1813.45305987284,1947.83405912086,2103.58781381275],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">6.8</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">32.45</span> </td>
+   <td style="text-align:right;"> 2158020 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-81b3f0abda20fc65b075" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-81b3f0abda20fc65b075">{"x":{"values":[937860,953540,985450.012207031,1011770.01953125,1085670.04394531,1136469.97070313,1215209.9609375,1336739.99023438,1424380.00488281,1564880.00488281,1659979.98046875,1756739.99023438,1909439.94140625,1972430.05371094,2147110.10742188,2158020.01953125],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 15.34 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-f4d6e4b8835c154234b5" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-f4d6e4b8835c154234b5">{"x":{"values":[13.5909480276924,13.2070435298578,12.0551611624532,13.4694247561217,14.4825005007376,16.6190180757235,17.5404247180092,17.8640856862195,16.5098337370558,15.6600552489802,16.0437444354595,17.316962856526,15.732973360913,17.3493138262499,16.2538398153488,15.3430503454798],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Italy </td>
+   <td style="text-align:right;"> 1836.64 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-4b46cd8c6518f9e2251c" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-4b46cd8c6518f9e2251c">{"x":{"values":[1842.12869035625,1878.07546564574,1882.84470680609,1885.45483588129,1912.29606078,1927.93575448625,1962.45813712676,1991.641321835,1972.48147658066,1868.31596835723,1900.32574810562,1913.76738582426,1856.71978342957,1822.53635697715,1822.45347636422,1836.63771106055],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">0.88</span> </td>
+   <td style="text-align:left;"> <span style="     ">18.52</span> </td>
+   <td style="text-align:right;"> 337860 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-efedd799f1c9f80fc04e" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-efedd799f1c9f80fc04e">{"x":{"values":[436300,436570,443470.001220703,462200.012207031,472399.993896484,473829.986572266,466649.993896484,459369.995117188,444980.010986328,397059.997558594,405269.989013672,396690.002441406,376750,346459.991455078,327500,337859.985351563],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 38.68 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-eb3547cba67d4c992646" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-eb3547cba67d4c992646">{"x":{"values":[18.8481927532313,19.9886720560218,17.408803309168,16.3708004107895,18.2133837316627,16.318218568926,16.456444939891,15.4807249320295,18.5511933581478,24.0189363067266,25.760359871876,27.5947287192996,31.0203903154411,38.905348564998,43.3916063800716,38.6792251795342],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brazil </td>
+   <td style="text-align:right;"> 1802.21 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ed7bbd3b88f0d50dfcd6" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ed7bbd3b88f0d50dfcd6">{"x":{"values":[1186.41896417519,1202.90895870007,1239.63932492644,1253.78148982537,1325.9988602628,1368.45909491119,1422.67728973878,1509.03196038582,1585.90499782247,1583.90973897916,1703.15004088474,1770.84042918727,1804.86139024716,1859.0942744686,1868.46328678187,1802.21199953868],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-4.35</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.31</span> </td>
+   <td style="text-align:right;"> 485340 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-21fd0a7f47c56b2208fb" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-21fd0a7f47c56b2208fb">{"x":{"values":[313670,319380,317760.009765625,310809.997558594,328519.989013672,331690.002441406,335619.995117188,352559.997558594,373630.004882813,350000,397929.992675781,418309.997558594,454230.010986328,486839.996337891,511619.995117188,485339.996337891],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 73.97 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-a60c384da7d7d1b2f1b5" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-a60c384da7d7d1b2f1b5">{"x":{"values":[89.4927058553782,84.2874450546105,85.7381730026528,87.1636031278562,86.0321122820058,87.1246275118911,86.7476516501048,88.2146796451509,84.2664236492775,88.9957757749597,84.7242338752678,87.1209969967485,82.4482831002635,76.6892081191253,73.0820738473312,73.9669080481113],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Canada </td>
+   <td style="text-align:right;"> 1556.51 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-536090597d76b6a087f1" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-536090597d76b6a087f1">{"x":{"values":[1047.04648689819,1061.76301413836,1098.09809647524,1139.94760489836,1184.56548225599,1243.74472565528,1295.55686267408,1384.54359609158,1398.4945715943,1357.54105422641,1399.48221205869,1443.5222570954,1468.96033181639,1503.17421751203,1546.31585983159,1556.50881621714],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-0.09</span> </td>
+   <td style="text-align:left;"> <span style="     ">19.57</span> </td>
+   <td style="text-align:right;"> 558700 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-dcd97f8751e15c94791e" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-dcd97f8751e15c94791e">{"x":{"values":[514220,506620,524349.975585938,544539.978027344,536419.982910156,549030.029296875,540530.029296875,571630.004882813,550469.970703125,521320.007324219,537010.009765625,549289.978027344,546210.021972656,555659.973144531,561679.992675781,558700.012207031],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 63.01 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-0c04b79cd423d1a7790f" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-0c04b79cd423d1a7790f">{"x":{"values":[60.6003011908929,58.0326562447014,59.8864192109229,58.915564963989,58.4463170880115,60.0294267425595,59.5442882203545,60.2962722574056,61.472527402962,62.8503473332841,61.396756842691,62.3382501312229,63.230561170877,63.2980330554908,62.8249922157553,63.011450040254],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Korea, Rep. </td>
+   <td style="text-align:right;"> 1465.77 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ca6d24301ce3ccede93e" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ca6d24301ce3ccede93e">{"x":{"values":[798.784342587129,837.544550604138,902.246062108946,930.642372967514,979.011499282814,1021.19262790549,1074.9515429991,1137.29387817346,1171.56037068224,1180.84731790224,1261.20191043246,1307.68562291281,1339.10317528726,1381.48188912685,1425.72320830654,1465.77324554715],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">2.27</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">36.35</span> </td>
+   <td style="text-align:right;"> 607830 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-d8c6b9ada34f9931dbff" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-d8c6b9ada34f9931dbff">{"x":{"values":[456660,471530,463000,465700.012207031,485910.003662109,481000,487850.006103516,503690.002441406,514919.982910156,526640.014648438,575219.970703125,598479.98046875,600320.007324219,599599.975585938,588090.026855469,607830.017089844],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 1.89 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-fb095ee8d1a379ca754d" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fb095ee8d1a379ca754d">{"x":{"values":[1.4248282650437,1.37738284320544,1.04122448484554,1.49275476338249,1.26318832989646,1.04466914513476,0.99883163049693,1.06995691527453,0.985727672457291,1.03769073406601,1.24537463913126,1.43812265288346,1.33594507802273,1.63285870185595,1.56686805919401,1.89466631222848],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Russian Federation </td>
+   <td style="text-align:right;"> 1363.48 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-f531f6fae9c9a34bf47e" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-f531f6fae9c9a34bf47e">{"x":{"values":[780.432233409801,820.234677092259,858.785640548236,921.476583049999,987.822416663347,1051.04271001596,1137.22892962705,1233.89313582189,1298.05519964743,1196.80697308195,1250.66328687101,1304.44217322247,1356.93405014393,1380.75397100875,1390.92000990568,1363.48106344677],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-2.18</span> </td>
+   <td style="text-align:left;"> <span style="     ">26.37</span> </td>
+   <td style="text-align:right;"> 1592560 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-403e7a99a234fbd2641d" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-403e7a99a234fbd2641d">{"x":{"values":[1563850,1567170,1565339.96582031,1610000,1600979.98046875,1611979.98046875,1654849.97558594,1658150.02441406,1655189.94140625,1546670.04394531,1617829.95605469,1699089.96582031,1675760.00976563,1632680.05371094,1611959.9609375,1592560.05859375],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 15.86 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-d1c1893f13cd14784f5b" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-d1c1893f13cd14784f5b">{"x":{"values":[18.729605644473,19.5670238257211,18.2608578316721,17.0766945778758,18.9562374651174,18.2025297558032,17.4938246140069,17.5206409321501,15.9141050296072,17.6440464827356,16.1205888143799,15.8030239287522,15.5637311058596,17.1746302202462,16.5682511980707,15.8557951545716],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Australia </td>
+   <td style="text-align:right;"> 1350.53 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-be2796b4e0d476fd66d8" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-be2796b4e0d476fd66d8">{"x":{"values":[872.586798723367,890.372741826771,926.116992865178,954.922242233238,995.080989941195,1026.52891583215,1054.52126555774,1094.26076780194,1133.40263827195,1154.56136220677,1179.64232691653,1208.77649956585,1256.12865642485,1288.79066298554,1321.82148512476,1350.53415425576],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">0.71</span> </td>
+   <td style="text-align:left;"> <span style="     ">22.7</span> </td>
+   <td style="text-align:right;"> 377800 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-499082e17ca2ffaf9069" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-499082e17ca2ffaf9069">{"x":{"values":[339450,345640,353369.995117188,352579.986572266,365809.997558594,370089.996337891,375489.990234375,385750,388940.002441406,395290.008544922,387540.008544922,386380.004882813,386970.001220703,380279.998779297,371630.004882813,377799.987792969],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 13.64 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-586bcd88edfd72f45fa0" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-586bcd88edfd72f45fa0">{"x":{"values":[8.3816185720276,8.09845495284596,7.86091882240146,8.44069886574851,8.1866501908305,8.80370663945662,9.2993077726263,8.64807246716794,8.11525755637195,7.49793425905399,8.61187962842023,10.4266522781963,10.5926533603071,13.2641083883167,14.9067122095833,13.6378410946741],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mexico </td>
+   <td style="text-align:right;"> 1171.87 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-e66d170404d660a63b89" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-e66d170404d660a63b89">{"x":{"values":[876.437526455268,872.893299631652,872.54549982264,885.16584683951,919.869577686507,941.09839279758,983.401498615029,1005.93561010939,1017.43933470369,963.660094723917,1012.98135687087,1050.08694429742,1088.33449922312,1103.07154919152,1134.50658718286,1171.86760819772],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">2.02</span> </td>
+   <td style="text-align:left;"> <span style="     ">21.76</span> </td>
+   <td style="text-align:right;"> 471630 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-30867be54de2767a9537" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-30867be54de2767a9537">{"x":{"values":[379180,378830,386000,404690.002441406,414100.006103516,432190.002441406,448299.987792969,457119.995117188,459549.987792969,448369.995117188,462869.995117188,478399.993896484,486450.012207031,475739.990234375,462239.990234375,471630.004882813],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 15.39 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-a9a8d7a794ac31c5d8de" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-a9a8d7a794ac31c5d8de">{"x":{"values":[19.8040598030874,17.1056320915192,15.0558378891124,12.1257149146759,14.4484243401253,15.1973138518471,15.3342487645557,14.0904430169788,17.5430258247777,12.9473322527395,16.6028518855907,14.8888030097341,13.7881312901168,13.2995432622778,17.5435163318916,15.3941337927222],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Turkiye </td>
+   <td style="text-align:right;"> 864.32 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-26e92f329a27477ffad1" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-26e92f329a27477ffad1">{"x":{"values":[413.826859269854,390.031787736966,415.179953304473,439.107629560404,482.122333632277,525.47624403833,561.986270867401,590.330093012939,595.141428332854,566.436841006172,614.171064520319,682.958902917534,715.662340203413,776.392136706161,814.743696794687,864.316670330882],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">4.33</span> </td>
+   <td style="text-align:left;"> <span style="     ">25.21</span> </td>
+   <td style="text-align:right;"> 351590 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ac031b1a0a3ef6cd1b3b" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ac031b1a0a3ef6cd1b3b">{"x":{"values":[216400,197770,208110.000610352,219160.003662109,224600.006103516,235000,261079.986572266,288970.001220703,287190.002441406,287829.986572266,297109.985351563,317720.001220703,328880.004882813,318170.013427734,340640.014648438,351589.996337891],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 31.96 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-4bb81cfcc393257e7a7c" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-4bb81cfcc393257e7a7c">{"x":{"values":[24.9387617873553,19.8378488490528,26.2488408037094,25.2943143098996,30.7309984206824,24.5424683247302,25.2536883362923,19.031833700498,17.3477204689091,19.5783627291953,26.3777887201242,25.3268408364684,27.2305174199152,28.8231717980962,20.8871937546386,31.9566205597766],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Indonesia </td>
+   <td style="text-align:right;"> 860.85 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-808282daedbbb49387cc" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-808282daedbbb49387cc">{"x":{"values":[395.012383689125,409.404527351182,427.825583308405,448.277225387513,470.829487520977,497.631791817584,525.006276753314,558.318041704736,591.893633878692,619.291627728719,657.835435591365,698.422462409202,740.537690664799,781.691322850807,820.828015498845,860.854235065079],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">3.56</span> </td>
+   <td style="text-align:left;"> <span style="     color: green !important;">30.12</span> </td>
+   <td style="text-align:right;"> 488550 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-a0a7322324ec76ac5b83" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-a0a7322324ec76ac5b83">{"x":{"values":[280650,302060,305640.014648438,333890.014648438,341239.990234375,342149.993896484,364470.001220703,379959.991455078,376140.014648438,391079.986572266,415519.989013672,475309.997558594,481510.009765625,447940.002441406,483910.003662109,488549.987792969],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 10.65 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-7cabe14748883e6a5060" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-7cabe14748883e6a5060">{"x":{"values":[15.9560675060273,17.474865190511,14.9532883003595,13.6385363003877,13.6065178133036,13.6055328591928,12.2587772033185,12.9038838981084,13.3158324739161,13.2330616046028,15.8540249182646,11.9928905172367,11.2368144778283,12.2701601703546,11.4751004932507,10.6511556345733],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Saudi Arabia </td>
+   <td style="text-align:right;"> 654.27 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-9a2c4674000de690e8c1" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9a2c4674000de690e8c1">{"x":{"values":[365.556994559716,361.131035682893,350.950121958979,390.404150102305,421.474236640777,444.966578891571,457.374036890092,465.822331088505,494.935168222616,484.743219780272,509.171776909606,560.072992908511,590.380910431968,606.316950593201,628.462590303711,654.269739552019],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">1.48</span> </td>
+   <td style="text-align:left;"> <span style="     ">25.5</span> </td>
+   <td style="text-align:right;"> 565190 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-fd9a8b606bfbf69d5f59" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-fd9a8b606bfbf69d5f59">{"x":{"values":[249660,254090,272250,284829.986572266,299890.014648438,315290.008544922,335440.002441406,354619.995117188,389720.001220703,406529.998779297,446130.004882813,463769.989013672,492470.001220703,503209.991455078,540520.01953125,565190.002441406],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 0.00 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-feca4d821f695dad2803" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-feca4d821f695dad2803">{"x":{"values":[0,0,0,0,0,0,0,0,0,0,0,0,0.000368080094228504,0.000352091600150695,0.000320712237737568,0.000295564172893219],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Argentina </td>
+   <td style="text-align:right;"> 594.75 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-c6760318b26a577f7beb" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-c6760318b26a577f7beb">{"x":{"values":[395.646066535875,378.202665751853,336.999433710193,366.780211148674,399.898899166738,435.296589745339,470.325565798353,512.69085074156,533.491913656279,501.917060966235,552.738161802463,585.924294024785,579.910247223428,593.858966307156,578.937574935696,594.749285413212],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style="     ">1.63</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.31</span> </td>
+   <td style="text-align:right;"> 185550 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-15fcdb839a4ad8112476" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-15fcdb839a4ad8112476">{"x":{"values":[132270,125260,117470.001220703,127660.003662109,141380.004882813,145990.005493164,154899.993896484,162809.997558594,167229.995727539,156570.007324219,167220.001220703,176639.999389648,177960.006713867,183250,179600.006103516,185550.003051758],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 28.14 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-ba9edf6595e93d3e2afc" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-ba9edf6595e93d3e2afc">{"x":{"values":[33.159374648521,41.8298840370637,43.5638757652185,37.9517548625448,31.63480257575,33.5251348456266,37.127698397103,29.8422008099427,26.3437057991513,28.9274026197721,28.5854562001549,32.305970437266,29.2611353196635,31.4844907174391,31.5762041956827,28.1400691239471],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> South Africa </td>
+   <td style="text-align:right;"> 346.71 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-db112b917c22d34a6acd" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-db112b917c22d34a6acd">{"x":{"values":[221.691970228101,227.677653424683,236.10257903579,243.065422272369,254.135982543496,267.546870424295,282.539679229874,297.685145427081,307.184409060741,302.459639039778,311.653604140269,321.528523981702,329.233094599263,337.416077838151,342.186555600731,346.709790458563],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:left;"> <span style=" font-weight: bold;    color: red !important;">-0.22</span> </td>
+   <td style="text-align:left;"> <span style="     ">14.29</span> </td>
+   <td style="text-align:right;"> 424810 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-9f1761c441a9671781f8" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-9f1761c441a9671781f8">{"x":{"values":[284660,320540,331320.007324219,353089.996337891,379989.990234375,377649.993896484,379790.008544922,397059.997558594,426739.990234375,404200.012207031,425309.997558594,409260.009765625,426779.998779297,436920.013427734,447929.992675781,424809.997558594],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+   <td style="text-align:right;"> 2.26 </td>
+   <td style="text-align:left;"> <span id="htmlwidget-86306b1ec5f253500003" class="sparkline html-widget"></span>
+<script type="application/json" data-for="htmlwidget-86306b1ec5f253500003">{"x":{"values":[0.677453966329383,1.1010073352452,1.20879925330796,0.417733342558638,0.508031378408666,0.665138088450972,1.26768480093761,0.44299424184261,0.587823214712017,0.693636934546118,0.948380661450703,0.918420809319814,0.602950810668738,0.609023981800373,1.29313627636078,2.25504182608132],"options":{"height":20,"width":60},"width":60,"height":20},"evals":[],"jsHooks":[]}</script> </td>
+  </tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
