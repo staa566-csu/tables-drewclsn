@@ -1,0 +1,104 @@
+---
+title: "Tables"
+author: "Drew Clayson"
+format: html
+editor: visual
+---
+
+## Data Gathering
+
+I am doing my data based on the G20 members to keep a concise table. I filter the dates down to ensure that there are no missing values (some data have not been updated since 2015).
+
+```{r, results = FALSE}
+library(wbstats)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+raw_data <- wb_data(country = c("ARG", "AUS", "BRA", "CAN", "CHN", "FRA", "DEU", "IND", "IDN", "ITA", "KOR", "JPN", "MEX", "RUS", "SAU", "ZAF", "TUR", "GBR", "USA", "EU"), indicator = c("NY.GDP.MKTP.KD", "NY.GDP.PCAP.KD.ZG", "EN.ATM.CO2E.KT", "EG.ELC.RNEW.ZS", "NY.GNS.ICTR.ZS"))
+clean_data <- raw_data %>% filter(date < 2016) %>% filter(date > 1999) %>% select(c(3:9))
+colnames(clean_data) <- c("Country", "Date", "Percent Renewable", "CO2", "GDP(billions)", "GDP Per Capita Growth", "Savings Rate")
+clean_data$`GDP(billions)` <- clean_data$`GDP(billions)`/1000000000
+```
+
+For my first table, I will be making a relatively simple table with a few added flairs pointing out interesting information. I understand that it might be slightly redundant to simply highlight negative numbers in red, however I think it makes it much easier for readers to glean simple information quickly. Furthermore I chose to highlight relatively large savings rates in green and found that they tend to all be from Asia, which is perhaps an interesting insight!
+
+```{r}
+clean_data$`GDP Per Capita Growth` <- ifelse(
+  clean_data$`GDP Per Capita Growth` < 0,
+  cell_spec(round(clean_data$`GDP Per Capita Growth`,digits = 2), color = "red", bold = TRUE),
+  cell_spec(round(clean_data$`GDP Per Capita Growth`,digits = 2))
+)
+clean_data$`Savings Rate` <- ifelse(
+  clean_data$`Savings Rate`>30,
+  cell_spec(round(clean_data$`Savings Rate`,digits = 2), color = "green"),
+  cell_spec(round(clean_data$`Savings Rate`, digits = 2))
+)
+
+tbl <- clean_data %>%
+  ungroup() %>%
+  filter(Date == 2015) %>%
+  arrange(desc(`GDP(billions)`)) %>%
+  select(Country, `GDP(billions)`, `GDP Per Capita Growth`, `Savings Rate`, CO2, `Percent Renewable`) %>%
+  kbl(escape = FALSE,
+    digits = 2) %>%
+  add_header_above(c(" ", "Economic Data " = 3, "Environmental Data" = 2))
+tbl %>%
+  kable_material(lightable_options = c("striped", "hover", "")) %>%
+  htmltools::HTML() %>%
+  shiny::div() %>%
+  sparkline::spk_add_deps()
+```
+
+From here, I will try to make use of the time series data using sparkline. I would really only like to include time series of GDP, CO2, and Percent Renewable. I could do time series of the other data, however I don't believe it to be particularly interesting. The chart will still use the same data as above so all color highlights remain the same, which is nice functionality.
+
+```{r}
+library(sparkline)
+# Create similar table to the one above,  however mutating to add 3 more variables
+tbl2 <- clean_data %>%
+  filter(Date == 2015) %>%
+  arrange(desc(`GDP(billions)`)) %>%
+  select(Country, `GDP(billions)`, `GDP Per Capita Growth`, `Savings Rate`, CO2, `Percent Renewable`) %>%
+  mutate(plt_GDP = NA, plt_CO2 = NA, plt_PercentRenewable = NA) %>% as.data.frame()
+# Generate plots using a for loop
+for(i in tbl2$Country){
+  # Data for GDP
+  country_GDP <- clean_data %>%
+    filter(Country==i) %>%
+    arrange(Date) %>%
+    pull(`GDP(billions)`)
+  tbl2[which(tbl2$Country == i), "plt_GDP"] <- spk_chr(country_GDP)
+  # Data for CO2
+  country_CO2 <- clean_data %>%
+    filter(Country==i) %>%
+    arrange(Date) %>%
+    pull(CO2)
+  tbl2[which(tbl2$Country == i), "plt_CO2"] <- spk_chr(country_CO2)
+  # Data for Renewables
+  country_PercentRenewable <- clean_data %>%
+    filter(Country==i) %>%
+    arrange(Date) %>%
+    pull(`Percent Renewable`)
+  tbl2[which(tbl2$Country == i), "plt_PercentRenewable"] <- spk_chr(country_PercentRenewable)
+}
+tbl2_full <- tbl2 %>%
+  select(Country, `GDP(billions)`, plt_GDP, `GDP Per Capita Growth`, `Savings Rate`, CO2, plt_CO2, `Percent Renewable`, plt_PercentRenewable) %>%
+  kbl(escape = FALSE,
+    col.names = c("Country",
+                    "GDP (billions)",
+                    "GDP Trend",
+                    "GDP per Capita Growth",
+                    "Savings Rate",
+                    "CO2 Emissions",
+                    "Emission Trend",
+                    "Percent Renewable",
+                    "Renewability Trend"
+                    ),
+      digits = 2) %>%
+  add_header_above(c(" ", "GDP" = 3, " ", "Environmentals" = 4)) %>%
+  kable_styling(font_size=28, fixed_thead = TRUE)
+tbl2_full %>%
+  htmltools::HTML() %>%
+  shiny::div() %>%
+  sparkline::spk_add_deps()
+```
